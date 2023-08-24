@@ -1,0 +1,45 @@
+//code is quite difficult to implement and understand ,suggestions are always welcome
+#include<bits/stdc++.h>
+using namespace std;
+int findmajority(int arr[],int n)
+{
+	//finding a candidate
+	int res=0;
+	int count=1;
+	for(int i =0;i<n;i++)
+	{
+		if(arr[res]==arr[i]){
+			count++;
+		}
+		else{
+			count--;
+		}
+		if (count==0)
+		{
+			res=i;
+			count = 1;
+		}
+	}return res;
+	}//checking if candidiate is actually majority
+int check(int arr[],int res,int n){
+	int alert = 0;
+	for(int i=0;i<n;i++)
+	{
+		if(arr[res]==arr[i])
+		{
+			alert++;
+		}
+	}
+	if(alert<=n/2){
+			res=-1;
+		}
+			
+	return res;
+}
+int main()
+{
+	int arr[]={6,8,8,8,8,8,6,6,6};
+	int n = sizeof(arr)/sizeof(arr[0]);
+	int ans=findmajority(arr,n);//return the index of majority element
+	cout<<arr[check(arr,ans,n)];
+  }
