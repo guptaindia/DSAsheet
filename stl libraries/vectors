@@ -1,0 +1,13 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main ()
+{
+	vector <int> v={10,20,5,7};
+	int n = sizeof(v) / sizeof(v[0]);
+	sort(v.begin(),v.end());
+	for(int x : v)
+	cout<<x<<" "<<endl;
+		sort(v.begin(),v.end(),greater<int>());
+	for(int x: v)
+	cout<<x<<" ";
+}
