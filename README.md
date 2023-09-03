@@ -37,3 +37,6 @@ Make your changes and commit them: git commit -m 'Add your feature or fix'.
 Push your changes to your forked repository: git push origin feature/your-feature-name.
 Create a pull request, describing your changes and their significance.
 Please follow the repository's code of conduct and maintain a respectful and inclusive environment for all contributors.
+
+LEARNING EVERYDAY CREATING EVERYDAY!
+Happy coding and learning! 🚀📚
