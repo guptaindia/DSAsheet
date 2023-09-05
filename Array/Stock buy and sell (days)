@@ -1,0 +1,46 @@
+//The cost of stock on each day is given in an array A[] of size N. Find all the days on which you buy and sell the stock so that in between those days your profit is maximum.
+#include <iostream>
+using namespace std;
+void stockBuySell(int price[], int n)
+{
+    // Prices must be given for at least two days
+    if (n == 1)
+        return;
+  
+    // Traverse through given price array
+    int i = 0;
+    while (i < n - 1) {
+  
+        // Find Local Minima
+        while ((i < n - 1) && (price[i + 1] <= price[i]))
+            i++;
+  
+        // If we reached the end, break
+        if (i == n - 1)
+            break;
+  
+        // Store the index of minima
+        int buy = i++; //increment the i beacuse of next selling day 
+  
+        // Find Local Maxima
+        // Note that the limit is (n-1) as we are
+        // comparing to previous element
+        while ((i < n) && (price[i] >= price[i - 1]))
+            i++;
+  
+        // Store the index of maxima
+        int sell = i - 1;//i will move to next element know its value therefore -1 to get it back
+  
+        cout << "Buy on day: " << buy
+             << "\t Sell on day: " << sell << endl;
+    }
+}
+  
+int main()
+{ 
+    int price[] = { 100, 180, 260, 310, 40, 535, 695 };
+    int n = sizeof(price) / sizeof(price[0]);
+    stockBuySell(price, n);
+  
+    return 0;
+}
