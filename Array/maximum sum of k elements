@@ -1,0 +1,25 @@
+//given an array of integers and a number k, find the maximun sum of k consecutive numbers
+//window sliding approach
+#include<iostream>
+using namespace std;
+int maxsumofkelement(int arr[],int n, int k)
+{
+	int currsum = 0;
+	for(int i =0;i<k;i++)
+	{
+		currsum+= arr[i];
+	}
+	int maxsum=currsum;
+	for(int i=k;i<n;i++){
+		currsum+=arr[i]-arr[i-k];
+		maxsum=max(currsum,maxsum);
+	}
+	return maxsum;
+}
+int main()
+{
+	int arr[]={1,8,30,-5,20,7};
+	int n = sizeof(arr)/sizeof(arr[0]);
+	int k = 3;
+	cout<<maxsumofkelement(arr,n,k);
+}
