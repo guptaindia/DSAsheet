@@ -1,0 +1,37 @@
+//program to check if given sum  is equal to the sum of contigous array elements
+#include<iostream>
+using namespace std;
+bool subsum(int arr[] , int n, int sum)
+{
+	int currsum = arr[0];
+	int s = 0;
+	for(int e = 1;e<=n;e++)
+	{ 
+		//clean previous element
+		while(currsum>sum && s<e-1)
+		{
+			currsum-= arr[s];
+			s++;  
+		}
+		if(currsum==sum)
+		{
+			return true;
+		}
+		if(e<n)
+		{
+			currsum+=arr[e];
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+}
+int main()
+{
+	int arr[]={2,4,20,3,10,5};
+	int n = sizeof(arr)/sizeof(arr[0]);
+	int sum  =7;
+	cout<<subsum(arr,n,sum);
+}
