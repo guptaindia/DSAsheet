@@ -1,0 +1,31 @@
+//program to check if string s2 is part of string s1 in contigious order
+#include<bits/stdc++.h>
+using namespace std;
+bool issubseq(string &s1,string &s2)
+{
+	int m = s1.length();
+	int n = s2.length();
+	int j = 0;
+	int i;
+	if(m<n)//condition check
+	{
+		return false;
+	}
+	else
+	{
+	for(i=0;i<m&&j<n;i++)
+	{
+		if(s1[i]==s2[j])
+		{
+			j++;
+		}
+	}
+	return (j==n);
+   }
+}
+int main()
+{
+	string s1 = "abcdef";
+	string s2 = "ade";
+	cout<<issubseq(s1,s2);
+}
