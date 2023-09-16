@@ -19,14 +19,6 @@ Explore and Contribute: Dive into the specific language directory (e.g., python/
 
 Contribute: If you'd like to contribute, feel free to fork this repository, make your changes, and submit a pull request. Contributions, corrections, and suggestions are highly appreciated.
 
-* Directory Structure
-The repository is organized as follows:
-
-python/: Contains Python implementations of data structures and algorithms.
-java/: Contains Java implementations of data structures and algorithms.
-cpp/: Contains C++ implementations of data structures and algorithms.
-javascript/: Contains JavaScript implementations of data structures and algorithms.
-<other_languages>/: Add more language-specific directories as needed.
 
 * Contributing
 Contributions are welcome! If you have code improvements, additional algorithms, or better explanations, please follow these steps:
