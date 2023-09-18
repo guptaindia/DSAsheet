@@ -1,0 +1,37 @@
+//Given a square matrix of size N*N, print the sum of upper and lower triangular elements. Upper Triangle consists of elements on the diagonal and above it. The lower triangle consists of elements on the diagonal and below it. 
+#include<iostream>
+using namespace std;
+const int rows=3;
+const int cols=3;
+void sumofupperandlowertriangles(int A[rows][cols])
+{
+	int lowersum=0;
+	int uppersum=0;
+	for(int i=0;i<rows;i++)
+	{
+		for(int j=0;j<cols;j++)
+		{
+			if(i<=j)
+			{
+				uppersum+=A[i][j];
+			}
+		}
+	}
+	cout<<"uppersum="<<uppersum<<endl;
+	for(int i=0;i<rows;i++)
+	{
+		for(int j=0;j<cols;j++)
+		{
+			if(i>=j)
+			{
+				lowersum+=A[i][j];
+			}
+		}
+	}
+	cout<<"lowersum="<<lowersum;
+}
+int main()
+{
+	int A[rows][cols] = {{6, 5, 4},{1, 2, 5},{7, 9, 7}};
+	sumofupperandlowertriangles(A);
+}
