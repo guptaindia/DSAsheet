@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+const int r=3;
+const int c=3;
+void transpose(int mat[r][c])
+{
+	int i,j;
+	for( i=0;i<r;i++)
+	{
+		for( j=i+1;j<c;j++)
+		{
+			swap(mat[j][i],mat[i][j]);
+		}
+	}
+	for( i=0;i<r;i++)
+	{
+		for( j=0;j<c;j++)
+		{
+			cout<<mat[i][j]<<" ";
+		}
+		cout<<endl;
+	}
+	
+}
+int main()
+{
+	int mat[r][c] = {{1,2,3},{4,5,6},{7,8,9}};
+	transpose(mat);
+}
