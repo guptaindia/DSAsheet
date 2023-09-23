@@ -1,0 +1,69 @@
+#include<iostream>
+using namespace std;
+struct node
+{
+	int data;
+	node *next;//self referncing same name as struct
+	node(int x) //constructor
+	{
+		data=x;
+		next=NULL;
+	}
+};
+node *insertbegin(node *val, int x)
+{
+	node *temp=new node(x);
+	temp->next=val;
+	return temp;
+}
+node *insertend(node *val,int x)
+{
+	node *temp=new node(x);
+	if(val==NULL)
+	{
+		return temp;
+	}
+	node *curr = val;
+	while(curr->next!=NULL)
+	{
+		curr=curr->next;
+	}
+	curr->next=temp;
+	return val;
+}
+node *delhead(node *val)
+{
+	if(val==NULL)
+	{
+		return NULL;
+	}
+	else
+	{
+		node *temp = val->next;
+		delete val;
+		return temp;
+	}
+}
+void print(node *val)
+{
+	node *curr=val;
+	while(curr!=NULL)
+	{
+		cout<<curr->data<<"->";
+		curr=curr->next;
+	}cout<<"Null"<<endl;
+}
+int main()
+{
+	node *val = NULL;
+	//node *end=NULL;
+	val=insertbegin(val,30);
+	val=insertbegin(val,20);
+	val=insertbegin(val,10);
+	val=insertend(val,80);
+	cout<<"before"<<endl;
+	print(val);
+	val=delhead(val);
+	cout<<"after"<<endl;
+	print(val);
+}
