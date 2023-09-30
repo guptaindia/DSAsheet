@@ -1,0 +1,88 @@
+#include<iostream>
+using namespace std;
+struct node{
+	int data;
+	node *next;
+	node (int x)
+	{
+		data=x;
+		next=NULL;
+	}
+};
+node *insertpos(node *val, int pos, int data)
+{
+	node *temp = new node(data);
+	if(pos==1)
+	{
+		temp->next=val;
+		return temp;
+	}
+	node *curr=val;
+	for(int i=1;i<=pos-2&&curr!=NULL;i++)
+	{
+		curr=curr->next;
+	}
+	if(curr==NULL)
+	{
+		return val;
+	}
+	temp->next=curr->next;
+	curr->next=temp;
+	return val;
+}
+node *delhead(node *val)
+{
+	if(val==NULL)
+	{
+		return NULL;
+	}
+	else
+	{
+		node *temp = val->next;
+		delete val;
+		return temp;
+	}
+}
+node *dellast(node *val)
+{
+	if(val==NULL) return NULL;
+	if(val->next==NULL)
+	{
+		delete val;
+		return NULL;
+	}
+	node *curr=val;
+	while(curr->next->next!=NULL)
+	{
+		curr=curr->next;
+	}
+	delete (curr->next);
+	curr->next = NULL;
+	return val;
+}
+void print(node *val)
+{
+	node *curr=val;
+	while(curr!=NULL)
+	{
+		cout<<curr->data<<"->";
+		curr=curr->next;
+	}cout<<"Null"<<endl;
+}
+int main()
+{
+	node *val = NULL;
+	//node *end=NULL;
+	val=insertpos(val,1,10);
+	val=insertpos(val,2,20);
+	val=insertpos(val,3,30);
+	val=insertpos(val,4,40);
+	val=insertpos(val,5,50);
+	val=insertpos(val,2,99);
+/*	cout<<"before"<<endl;
+	print(val);
+	val=delhead(val);
+	val=dellast(val);
+*/	cout<<"after"<<endl;
+	print(val);
+}
